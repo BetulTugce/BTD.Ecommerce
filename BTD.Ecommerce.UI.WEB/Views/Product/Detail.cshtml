@@ -1,0 +1,40 @@
+﻿@model BTD.Ecommerce.Core.Model.Entity.Product
+@{
+    ViewBag.Title = "Ürün Detayı";
+}
+
+<h2>Ürün Detayı</h2>
+<hr />
+<div>
+    <p class="title">@Model.Name</p>
+    <div class="left">
+        <img src="@Model.ImageUrl" style="left:10px; width:90%; margin-left:auto; margin-right:auto;"/>
+    </div>
+    <div class="right">
+        <p style="text-align:left; font-weight:bold; font-size:xx-large;">@Model.Price.ToString("##,## ₺")</p>
+        <a href="#" class="btn btn-default"><i class="fas fa-shopping-basket"></i> Sepete Ekle</a>
+        <hr />
+        <p style="padding:10px;">@Model.Description</p>
+    </div>
+</div>
+<div class="row"></div>
+<style>
+    .title {
+        font-weight: bold;
+        font-size: x-large;       
+        padding: 10px;
+        text-align: left;
+    }
+
+    .left {
+        width: 600px;
+        float: left;
+        margin: 5px;
+    }
+
+    .right {
+        width: 500px;
+        float: right;
+    }
+</style>
+

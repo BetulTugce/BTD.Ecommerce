@@ -1,0 +1,49 @@
+﻿@model List<BTD.Ecommerce.Core.Model.Entity.Product>
+@{
+    ViewBag.Title = "Index";
+    var category = (BTD.Ecommerce.Core.Model.Entity.Category)ViewBag.category;
+}
+
+<h2>BTD E-Ticaret Sayfasına Hoşgeldiniz.</h2>
+<br />
+<h6>@category.Name kategorisi ürünleri</h6>
+@{
+    foreach (var item in Model)
+    {
+        <div class="productBox">
+            <p class="title">
+                @if (item.Name.Length > 50)
+                {
+                    @(item.Name.Substring(0, 47)+"...")
+                }
+                else
+                {
+                    @item.Name
+                }
+            </p>
+            <img src="@item.ImageUrl" />
+            <p style="text-align:center; font-weight:bold; font-size:xx-large;">@item.Price.ToString("##,## ₺")</p>
+            <a href="/Urun/@item.Name.Replace(" ", "-")/@item.ID" class="btn btn-success">İncele</a>
+            <a href="#" class="btn btn-default"><i class="fas fa-shopping-basket"></i> Sepete Ekle</a>
+        </div>
+    }
+}
+<div class="row"></div>
+<style>
+    .productBox {
+        width: 200px;
+        float: left;
+        margin: 10px;
+        /*border:2px solid #d8c4c4;
+        padding:10px;*/
+    }
+
+        .productBox img {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .productBox .title {
+            font-weight: bold;
+        }
+</style>
